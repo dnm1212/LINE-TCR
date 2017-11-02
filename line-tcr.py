@@ -36,9 +36,6 @@ ko.login(qr=True)
 ke = LINETCR.LINE()
 ke.login(qr=True)
 
-ku = LINETCR.LINE()
-ku.login(qr=True)
-
 cl
 
 print "login success"
@@ -89,8 +86,8 @@ Setgroup =""" Privasi Menu V.1 􀔃􀄆red check mark􏿿
 [No Joinned]
 -- Joinn on/off
 """
-KAC=[cl,ki,kk,kc,ks,ka,kb,ko,ke,ku]
-DEF=[ka,kb,ko,ke,ku]
+KAC=[cl,ki,kk,kc,ks,ka,kb,ko,ke]
+DEF=[ka,kb,ko,ke]
 mid = cl.getProfile().mid
 Amid = ki.getProfile().mid
 Bmid = kk.getProfile().mid
@@ -100,9 +97,8 @@ Emid = ka.getProfile().mid
 Fmid = kb.getProfile().mid
 Gmid = ko.getProfile().mid
 Hmid = ke.getProfile().mid
-Imid = ku.getProfile().mid
 
-Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Imid,"u7a5257b4cd2286f1a225fe44e797dd0f"]
+Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,"u7a5257b4cd2286f1a225fe44e797dd0f"]
 admin=["u7a5257b4cd2286f1a225fe44e797dd0f"]
 wait = {
     'contact':False,
@@ -303,18 +299,7 @@ def bot(op):
                     ke.acceptGroupInvitationByTicket(op.param1,Ti)
                     X.preventJoinByTicket = True
                     ke.updateGroup(X)
-                    Ti = ke.reissueGroupTicket(op.param1)
-                    
-            if op.param3 in Imid:
-                if op.param2 in mid:
-                    X = cl.getGroup(op.param1)
-                    X.preventJoinByTicket = False
-                    cl.updateGroup(X)
-                    Ti = cl.reissueGroupTicket(op.param1)
-                    ku.acceptGroupInvitationByTicket(op.param1,Ti)
-                    X.preventJoinByTicket = True
-                    cl.updateGroup(X)
-                    Ti = cl.reissueGroupTicket(op.param1)        
+                    Ti = ke.reissueGroupTicket(op.param1)     
 
         if op.type == 13:
             print op.param1
@@ -1895,8 +1880,6 @@ def bot(op):
                         time.sleep(0.2)
                         ke.acceptGroupInvitationByTicket(msg.to,Ticket)
                         time.sleep(0.2)
-                        ku.acceptGroupInvitationByTicket(msg.to,Ticket)
-                        time.sleep(0.2)
                         G = cl.getGroup(msg.to)
                         G.preventJoinByTicket = True
                         cl.updateGroup(G)
@@ -1971,7 +1954,6 @@ def bot(op):
                         kb.leaveGroup(msg.to)
                         ko.leaveGroup(msg.to)
                         ke.leaveGroup(msg.to)
-                        ku.leaveGroup(msg.to)
                     except:
                         pass
             elif msg.text in ["Bye _Second"]:
@@ -2458,10 +2440,6 @@ def nameUpdate():
                 profile9 = ke.getProfile()
                 profile9.displayName = wait["cName9"]
                 ke.updateProfile(profile9)
-                
-                profile10 = ku.getProfile()
-                profile10.displayName = wait["cName10"]
-                ku.updateProfile(profile10)
             time.sleep(600)
         except:
             pass
